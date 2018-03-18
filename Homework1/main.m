@@ -2,9 +2,7 @@
 //  main.m
 //  Homework1
 //
-//  Created by 林志宸 on 2018/3/12.
-//  Copyright © 2018年 林志宸. All rights reserved.
-//
+
 
 #import <Foundation/Foundation.h>
 #import "Fraction.h"
@@ -35,9 +33,21 @@ int main(int argc, const char * argv[]) {
 //        [graphic setFillColor:12 andFill:1 andLineColor:22];
 //        [graphic print];
         Rectangle *rectangle = [[Rectangle alloc] init];
-        [rectangle setFC:12 andF:0 andLC:11];
-        NSLog(@"%i,%i,%i",rectangle.fillColor,rectangle.filled,rectangle.lineColor);
-        
+//        [rectangle setFC:12 andF:0 andLC:11];
+//        NSLog(@"%i,%i,%i",rectangle.fillColor,rectangle.filled,rectangle.lineColor);
+
+        Rectangle * r1 = [[Rectangle alloc]init];
+        Rectangle * r2 = [[Rectangle alloc]init];
+        XYPoint * xy1 = [[XYPoint alloc]init];
+        XYPoint * xy2 = [[XYPoint alloc]init];
+        [xy1 setX:100 andY:200];
+        [xy2 setX:150 andY:50];
+        [r1 setOrigin:xy1];
+        [r2 setOrigin:xy2];
+        [r1 setWidth:400 andHeight:200];
+        [r2 setWidth:300 andHeight:300];
+        Rectangle * newR = [r1 intersect:r2];
+        NSLog(@"%i,%i,%i,%i",newR.origin.x,newR.origin.y,newR.width,newR.height);
     }
     return 0;
 }
